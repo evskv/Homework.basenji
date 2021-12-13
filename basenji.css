@@ -52,24 +52,91 @@
               text-align: center;
               font-size: 20px;}
               
-@media only screen and (max-width:800px) {
-  /* For tablets: */
-  .header {
-    width: 80%;
-    padding: 0;
-  }
-  .ad {
-    width: 100%;
-  }
- .sidebar {
- widdth: 100%}
+/* Tablet layout */
+@media (min-width: 576px) {
+    .body {
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas:
+            "header"
+            "hero"
+            "body"
+            "sidebar"
+            "footer";
+    }
+
+    /* Header Layout */
+    .header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            "info"
+            "title";
+    }
+
+    /* Hero Layout */
+    .hero {
+        grid-template-areas:
+            "hero-feature"
+            "hero-call";
+    }
+
+    .hero .hero-feature {
+        display: block;
+    }
+
+    /* Body Layout */
+    .article {
+        grid-template-columns: 1fr 200px;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "article"
+            "article-feature";
+    }
+
+    /* Sidebar Layout */
+    .sidebar {
+        display: grid;
+    }
+
+    .ad {
+        width: 200px;
+    }
 }
-@media only screen and (max-width:500px) {
-  /* For mobile phones: */
-  .header, .ad, .sidebar {
-    width: 100%;
-  }
-}              
+
+/* Desktop layout */
+@media (min-width: 992px) {
+    body {
+        grid-template-columns: 1fr 350px;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "hero ad"
+            "sidebar"
+            "footer footer"
+    }
+
+    /* Hero Layout */
+    .hero {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "hero-call"
+    }
+
+    /* Change Body Layout */
+    main {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "feature listing"
+    }
+
+    .ad {
+        display: none;
+    }
+
+    .sidebar-feeature {
+        display: block;
+    }
+}       
 
               html, body , .container {
                 height: 100%;
